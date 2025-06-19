@@ -1,1 +1,1 @@
-Temporarily hosting the Barrett's Oesophagus Risk Stratification Tool (BORSChT) website.
+Temporarily hosting the Barrett's Oesophagus Risk Stratification Computation Handy Tool (BORSCHT) website.
