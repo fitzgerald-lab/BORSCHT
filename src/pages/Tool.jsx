@@ -23,19 +23,26 @@ export default function Tool() {
       alert("Please fill all required fields (*) before calculating.");
       return;
     }
+
+    const C = answers[3]
+    const M = answers[4]
+
+    if (M < C) {
+      alert("Prague maximal length (M) cannot be less than the prague circumferential length (C).")
+      return;
+    }
+
+
     setScore(stratifyRiskGroup(answers));
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto bg-gray-50 min-h-screen">
-      <h1 className="text-3xl font-bold mb-8 text-center text-gray-900">
-        Risk Stratification Tool
-      </h1>
+    <div className="mt-2 pt-2 p-4 py-2 max-w-3xl mx-auto bg-gray-50 min-h-screen">
 
       {sections.map((section) => (
         <section
           key={section.title}
-          className="mb-8 border border-gray-300 bg-white shadow-sm p-6 rounded-2xl"
+          className="mt-2 mb-4 border border-gray-300 bg-white shadow-sm p-6 rounded-2xl"
         >
           <h2 className="text-2xl font-semibold text-gray-800 mb-6">
             {section.title}
@@ -86,22 +93,29 @@ export default function Tool() {
       <button
         onClick={calculateScore}
         disabled={!allRequiredFilled}
-        className={`w-full md:w-auto mt-4 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold transition
+        className={`w-full md:w-auto mt-2 bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition
           ${
             allRequiredFilled
-              ? "hover:bg-blue-700 cursor-pointer"
+              ? "hover:bg-indigo-700 cursor-pointer"
               : "opacity-50 cursor-not-allowed"
           }`}
       >
         Calculate Risk
       </button>
-
       {score && (
-        <div className="mt-8 p-6 border border-blue-300 bg-blue-50 rounded-lg text-center">
-          <h2 className="text-2xl font-semibold text-blue-800 mb-2">
-            Risk Category:
-          </h2>
-          <p className="text-3xl font-bold text-blue-700">{score}</p>
+        <div
+          className={`mt-8 p-6 rounded-lg text-center border
+            ${
+              score === "High risk"
+                ? "bg-rose-100 border-rose-300 text-black-800"
+                : score === "Moderate risk"
+                ? "bg-amber-100 border-amber-300 text-black-800"
+                : "bg-emerald-100 border-emerald-300 text-black-800"
+            }
+          `}
+        >
+          <h2 className="text-2xl font-semibold mb-2">Risk Category:</h2>
+          <p className="text-3xl font-bold">{score}</p>
         </div>
       )}
     </div>
@@ -172,7 +186,7 @@ const sections = [
     ],
   },
   {
-    title: "Capsule Sponge Biomarkers",
+    title: "Capsule Sponge Biomarkers (Optional)",
     questions: [
       {
         id: 5,
