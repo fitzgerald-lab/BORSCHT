@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 export default function Tool() {
   const [answers, setAnswers] = useState({});
   const [score, setScore] = useState(null);
+  const outputRef = useRef(null);
 
-  // Update answer state
   const handleChange = (id, value) => {
     setAnswers((prev) => ({
       ...prev,
@@ -12,8 +12,7 @@ export default function Tool() {
     }));
   };
 
-  // Validate required fields before calculating
-  const requiredFields = [1, 2, 3, 4]; // ids of required questions
+  const requiredFields = [1, 2, 3, 4];
   const allRequiredFilled = requiredFields.every(
     (id) => answers[id] !== undefined && answers[id] !== ""
   );
@@ -24,21 +23,28 @@ export default function Tool() {
       return;
     }
 
-    const C = answers[3]
-    const M = answers[4]
+    const C = answers[3];
+    const M = answers[4];
 
     if (M < C) {
-      alert("Prague maximal length (M) cannot be less than the prague circumferential length (C).")
+      alert(
+        "Prague maximal length (M) cannot be less than the prague circumferential length (C)."
+      );
       return;
     }
 
+    const result = stratifyRiskGroup(answers);
+    setScore(result);
 
-    setScore(stratifyRiskGroup(answers));
+    setTimeout(() => {
+      if (outputRef.current) {
+        outputRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+    }, 100);
   };
 
   return (
-    <div className="mt-2 pt-2 p-4 py-2 max-w-3xl mx-auto bg-gray-50 min-h-screen">
-
+    <div className="mt-10 pt-2 p-4 py-4 max-w-3xl mx-auto bg-gray-50 min-h-screen">
       {sections.map((section) => (
         <section
           key={section.title}
@@ -93,26 +99,27 @@ export default function Tool() {
       <button
         onClick={calculateScore}
         disabled={!allRequiredFilled}
-        className={`w-full md:w-auto mt-2 bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition
+        className={`w-full md:w-auto mt-2 px-6 py-3 rounded-lg font-semibold transition 
           ${
             allRequiredFilled
-              ? "hover:bg-indigo-700 cursor-pointer"
-              : "opacity-50 cursor-not-allowed"
+              ? "bg-indigo-700 text-white hover:bg-indigo-800 cursor-pointer"
+              : "bg-indigo-400 text-white opacity-50 cursor-not-allowed"
           }`}
       >
         Calculate Risk
       </button>
+
       {score && (
         <div
+          ref={outputRef}
           className={`mt-8 p-6 rounded-lg text-center border
             ${
               score === "High risk"
-                ? "bg-rose-100 border-rose-300 text-black-800"
+                ? "bg-rose-100 border-rose-300 text-black"
                 : score === "Moderate risk"
-                ? "bg-amber-100 border-amber-300 text-black-800"
-                : "bg-emerald-100 border-emerald-300 text-black-800"
-            }
-          `}
+                ? "bg-amber-100 border-amber-300 text-black"
+                : "bg-emerald-100 border-emerald-300 text-black"
+            }`}
         >
           <h2 className="text-2xl font-semibold mb-2">Risk Category:</h2>
           <p className="text-3xl font-bold">{score}</p>
@@ -122,7 +129,6 @@ export default function Tool() {
   );
 }
 
-// Logic function unchanged:
 function stratifyRiskGroup(answers) {
   const C = answers[3];
   const M = answers[4];
@@ -132,15 +138,14 @@ function stratifyRiskGroup(answers) {
   const p53 = answers[6];
 
   const missingFields = [];
-  if (C == undefined) missingFields.push("Prague Circumferential Length");
-  if (M == undefined) missingFields.push("Prague Maximal Length");
-  if (age == undefined) missingFields.push("Age");
+  if (C === undefined) missingFields.push("Prague Circumferential Length");
+  if (M === undefined) missingFields.push("Prague Maximal Length");
+  if (age === undefined) missingFields.push("Age");
   if (!sex) missingFields.push("Sex");
 
   if (missingFields.length > 0) {
     alert(
-      "Please complete the following required fields:\n" +
-        missingFields.join("\n")
+      "Please complete the following required fields:\n" + missingFields.join("\n")
     );
     return;
   }
@@ -192,7 +197,11 @@ const sections = [
         id: 5,
         type: "multi",
         text: "Atypia",
-        options: ["Negative", "Atypia of uncertain significance (AUS)", "Positive"],
+        options: [
+          "Negative",
+          "Atypia of uncertain significance (AUS)",
+          "Positive",
+        ],
       },
       {
         id: 6,
