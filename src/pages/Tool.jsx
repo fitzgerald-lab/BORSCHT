@@ -312,7 +312,7 @@ function stratifyRiskGroup(answers) {
   const very_hi_risk = p53 == "Positive" || atypia == "Positive";
   const hi_risk = (atypiaRisk || p53Risk) && !very_hi_risk;
   const clin_mod_crit1 = C > 6 || M > 10;
-  const clin_mod_crit2 = (M > 5 || C >= 3) && (sex === "Male" || age >= 60);
+  const clin_mod_crit2 = (M > 5 || C >= 3) && (sex === "Male" || age > 60);
   const clin_mod_crit3 = prev_lgd == "Yes" || prev_ind == "Yes";
 
   if (very_hi_risk) return "Very high risk";
