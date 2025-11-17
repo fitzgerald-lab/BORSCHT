@@ -4,7 +4,7 @@ import React from 'react';
 export default function About() {
   return (
     <div className="bg-white p-8 rounded-lg shadow-md mt-6">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Barrett's Oesophagus Risk Stratification Tool</h1>
+      <h1 className="text-3xl font-bold mb-4 text-gray-800">Barrett's Oesophagus Surveillance Risk Stratification Tool</h1>
       <h2 className="text-xl font-bold mb-2 text-gray-800"> Overview of the tool </h2>
       <p className="text-gray-700 text-lg mb-2 leading-relaxed">
         This tool is designed for patients diagnosed with Barrett's oesophagus who are undergoing surveillance for dysplasia and oesophageal adenocarcinoma (OAC). It is designed for healthcare 
@@ -38,7 +38,14 @@ export default function About() {
         <ul className="list-disc list-inside text-gray-700 text-lg">
           <li> <span className="text-rose-800">Very high risk:</span> atypia positive <b>or</b> p53 positive </li>
           <li> <span className="text-rose-800">High risk:</span> at least one of atypia of uncertain significance or equivocal p53</li>
-          <li> <span className="text-amber-600">Moderate risk:</span> at least one of M {">"} 5 or C {">"} 2 <b>and</b> at least one of age {"≥"} 60 or assigned male at birth </li>
+          <li> <span className="text-amber-600">Moderate risk:</span> at least one of the following are satisfied</li>
+          <p className="text-gray-700 text-lg mb-0 indent-8">
+            <ul className="list-disc list-inside text-gray-700 text-lg">
+              <li>low grade dysplasia on any prior endoscopy or indefinite for dysplasia on the most recent endoscopy</li>
+              <li>at least one of M {">"} 10 or C {">"} 6</li>
+              <li>at least one of M {">"} 5 or C {">"} 2 <b>and</b> at least one of age {"≥"} 60 or assigned male at birth</li>
+            </ul>
+          </p>
           <li> <span className="text-emerald-600">Low risk:</span> negative for both capsule sponge biomarkers and negative for clinical biomarkers</li>
         </ul>
       </p>
