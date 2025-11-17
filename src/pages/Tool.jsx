@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-
+import logo from "../BEST4_logo.png" 
 
 export default function Tool() {
   const [answers, setAnswers] = useState({});
@@ -122,6 +122,24 @@ export default function Tool() {
 
   return (
     <div className="mt-10 pt-2 p-4 py-4 max-w-3xl mx-auto bg-gray-50 min-h-screen">
+      <section className="mt-2 mb-6 border border-gray-300 bg-white shadow-sm p-6 rounded-2xl flex items-center justify-center">
+        <div className="flex-1 pr-1">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-3">
+            Surveillance Risk Stratification Tool
+          </h2>
+        </div>
+
+        <div className="flex-initial w-45 h-32 rounded-lg flex items-left justify-left bg-white">
+          <img
+            src={logo}
+            alt="Title Graphic"
+            className="object-contain w-full h-full"
+          />
+        </div>
+      </section>
+      
+      
+      
       {sections.map((section) => (
         <section
           key={section.title}
@@ -377,7 +395,7 @@ const sections = [
         type: "multi", 
         text: (
           <>
-            Indefinite for dysplasia on <span className="font-extrabold">previous endoscopy</span>
+            Indefinite for dysplasia on <span className="font-extrabold">most recent endoscopy</span>
           </>
         
         ), 
