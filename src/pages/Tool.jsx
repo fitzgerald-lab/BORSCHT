@@ -138,8 +138,6 @@ export default function Tool() {
         </div>
       </section>
       
-      
-      
       {sections.map((section) => (
         <section
           key={section.title}
@@ -340,13 +338,13 @@ function stratifyRiskGroup(answers) {
 }
 
 const sections = [
-  {
-    title: "Location", 
-    subtitle: "Optional",
-    questions:[
-      {id: 0, type: "autocomplete", text: "", required: false}
-    ]
-  },
+  // {
+  //   title: "Location", 
+  //   subtitle: "Optional",
+  //   questions:[
+  //     {id: 0, type: "autocomplete", text: "", required: false}
+  //   ]
+  // },
   {
     title: "Clinical Biomarkers",
     subtitle: "",
