@@ -29,7 +29,7 @@ export default function About() {
           <li>Prague circumferential length (C)</li>
           <li>Prague maximal length (M)</li>
           <li>Low grade dysplasia on any prior endoscopy</li>
-          <li>Indefinite for dysplasia on the previous endoscopy</li>
+          <li>Indefinite for dysplasia on the most recent endoscopy</li>
         </ul>
       </p>
       <h2 className="text-xl font-bold mb-2 text-gray-800">How the tool works</h2>
