@@ -43,7 +43,7 @@ export default function About() {
             <ul className="list-disc list-inside text-gray-700 text-lg">
               <li>low grade dysplasia on any prior endoscopy or indefinite for dysplasia on the most recent endoscopy</li>
               <li>at least one of M {">"} 10 or C {">"} 6</li>
-              <li>at least one of M {">"} 5 or C {">"} 2 <b>and</b> at least one of age {"≥"} 60 or assigned male at birth</li>
+              <li>at least one of M {">"} 5 or C {">"} 2 <b>and</b> at least one of age {">"} 60 or assigned male at birth</li>
             </ul>
           </p>
           <li> <span className="text-emerald-600">Low risk:</span> negative for both capsule sponge biomarkers and negative for clinical biomarkers</li>
