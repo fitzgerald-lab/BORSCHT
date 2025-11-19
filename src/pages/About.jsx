@@ -36,14 +36,14 @@ export default function About() {
       <p className="text-gray-700 text-lg mb-4 leading-relaxed">
         The tool will stratify patients into the following four groups: 
         <ul className="list-disc list-inside text-gray-700 text-lg">
-          <li> <span className="text-rose-800">Very high risk:</span> atypia positive <b>or</b> p53 positive </li>
+          <li> <span className="text-rose-800">Very high risk:</span> atypia positive and/or p53 positive </li>
           <li> <span className="text-rose-800">High risk:</span> at least one of atypia of uncertain significance or equivocal p53</li>
           <li> <span className="text-amber-600">Moderate risk:</span> at least one of the following are satisfied</li>
           <p className="text-gray-700 text-lg mb-0 indent-8">
             <ul className="list-disc list-inside text-gray-700 text-lg">
               <li>low grade dysplasia on any prior endoscopy or indefinite for dysplasia on the most recent endoscopy</li>
               <li>at least one of M {">"} 10 or C {">"} 6</li>
-              <li>at least one of M {">"} 5 or C {">"} 2 <b>and</b> at least one of age {">"} 60 or assigned male at birth</li>
+              <li>at least one of M {">"} 5 or C {"⩾"} 3 <b>and</b> at least one of age {">"} 60 or assigned male at birth</li>
             </ul>
           </p>
           <li> <span className="text-emerald-600">Low risk:</span> negative for both capsule sponge biomarkers and negative for clinical biomarkers</li>

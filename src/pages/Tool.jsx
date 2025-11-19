@@ -125,7 +125,7 @@ export default function Tool() {
       <section className="mt-2 mb-6 border border-gray-300 bg-white shadow-sm p-6 rounded-2xl flex items-center justify-center">
         <div className="flex-1 pr-1">
           <h2 className="text-2xl font-semibold text-gray-800 mb-3">
-            Surveillance Risk Stratification Tool
+            Barrett's Oesophagus Surveillance Risk Stratification Tool
           </h2>
         </div>
 
