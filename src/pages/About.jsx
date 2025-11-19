@@ -37,7 +37,7 @@ export default function About() {
         The tool will stratify patients into the following four groups: 
         <ul className="list-disc list-inside text-gray-700 text-lg">
           <li> <span className="text-rose-800">Very high risk:</span> atypia positive and/or p53 positive </li>
-          <li> <span className="text-rose-800">High risk:</span> at least one of atypia of uncertain significance or equivocal p53</li>
+          <li> <span className="text-rose-800">High risk:</span> atypia of uncertain significance only, equivocal p53 only or both together</li>
           <li> <span className="text-amber-600">Moderate risk:</span> at least one of the following are satisfied</li>
           <p className="text-gray-700 text-lg mb-0 indent-8">
             <ul className="list-disc list-inside text-gray-700 text-lg">
